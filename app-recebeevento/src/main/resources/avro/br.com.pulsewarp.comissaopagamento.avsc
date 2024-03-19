@@ -1,0 +1,36 @@
+{
+  "namespace": "br.com.pulsewarp.comissaopagamento",
+  "type": "record",
+  "name": "ComandoComissaoPagamento",
+  "fields": [
+    {
+      "name": "data",
+      "type": {
+        "type": "record",
+        "name": "ComandoComissaoPagamento",
+        "fields": [
+          {
+            "name": "numContrato",
+            "type": "string"
+          },
+          {
+            "name": "valorComVista",
+            "type": "string"
+          },
+          {
+            "name": "dataContrato",
+            "type": "string"
+          },
+          {
+            "name": "dataEfetiva",
+            "type": "string"
+          },
+          {
+            "name": "siglaOrigem",
+            "type": "string"
+          }
+        ]
+      },
+    },
+  ]
+}

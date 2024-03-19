@@ -1,0 +1,56 @@
+server:
+  port: 9080
+
+spring:
+  application:
+    name: app-recebeevento
+  datasource:
+    url: jdbc:mysql://localhost:3306/meu_banco_de_dados
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    inicialization-mode: never
+    platform: mysql
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        proc:
+          param_null_passing: true
+        jdbc:
+          batch_size: 5
+        order_inserts: true
+        order_updates: true
+        globally_quoted_identifiers: true
+        show_sql: false
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      properties:
+#        specific:
+#          avro:
+#            reader: true
+#        spring:
+#          deserializer:
+#            key:
+#              delegate:
+#                class: org.apache.kafka.common.serialization.StringDeserializer
+#            value:
+#              delegate:
+#                class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    properties:
+      max.poll.interval.ms: 60000 # Exemplo de aumento do max.poll.interval.ms para 60 segundos
+      schema:
+        registry:
+          url: http://localhost:8081
+      security:
+        protocol: PLAINTEXT
+topic:
+  comando_comissao_estorno:
+    name: comando_comissao_estorno  # Substitua "nome_do_seu_topico_estorno" pelo nome real do seu tópico de estorno
+  comando_comissao_pagamento:
+    name: comando_comissao_pagamento  # Substitua "nome_do_seu_topico_pagamento" pelo nome real do seu tópico de pagamento

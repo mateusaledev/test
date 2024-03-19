@@ -1,0 +1,36 @@
+{
+  "namespace": "br.com.pulsewarp.comissaoestorno",
+  "type": "record",
+  "name": "ComandoComissaoEstorno",
+  "fields": [
+    {
+      "name": "data",
+      "type": {
+        "type": "record",
+        "name": "ComandoComissaoEstorno",
+        "fields": [
+          {
+            "name": "numContrato",
+            "type": "string"
+          },
+          {
+            "name": "valorComVista",
+            "type": "string"
+          },
+          {
+            "name": "dataContrato",
+            "type": "string"
+          },
+          {
+            "name": "dataEstorno",
+            "type": "string"
+          },
+          {
+            "name": "siglaOrigem",
+            "type": "string"
+          }
+        ]
+      },
+    },
+  ]
+}
